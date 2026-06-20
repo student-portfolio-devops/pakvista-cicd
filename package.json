@@ -1,0 +1,14 @@
+{
+  "name": "pakvista-cicd",
+  "version": "1.0.0",
+  "description": "PakVista - Pakistan Tourism Static Website",
+  "scripts": {
+    "build": "parcel build index.html --dist-dir dist --public-url /"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}

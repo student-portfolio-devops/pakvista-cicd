@@ -1,0 +1,23 @@
+name: cd-dev
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy-development:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: development
+      url: https://pakvista-dev.onrender.com
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Trigger Render deployment
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_DEV_URL }}
+
+      - name: Confirm deployment
+        run: echo "Deployment to development triggered at $(date)"

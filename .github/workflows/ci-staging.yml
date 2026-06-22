@@ -1,4 +1,4 @@
-name: CI - Staging
+name: ci-staging
 
 on:
   pull_request:

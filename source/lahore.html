@@ -6,133 +6,1907 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lahore - The Heart of Pakistan | PakVista</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* // lahore.htmll css */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Marcellus&family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+        /* Theme Tokens */
+        :root {
+            --wine-red: #6E1F2A;
+            --burgundy: #7A1E24;
+            --gold: #D4AF37;
+            --beige: #E8DCC5;
+            --emerald: #0E4B3B;
+            --ivory: #F8F5EE;
+            --charcoal: #1C1C1C;
+            --charcoal-light: #2D2D2D;
+            --font-headings: 'Cinzel', 'Marcellus', 'Cormorant Garamond', serif;
+            --font-body: 'Lora', 'Poppins', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Resets & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--ivory) !important;
+            color: var(--charcoal) !important;
+            font-family: var(--font-body) !important;
+            line-height: 1.7 !important;
+            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(110, 31, 42, 0.02) 0%, transparent 40%),
+                /* Intricate Repeating Islamic 8-Point Geometric Star Pattern */
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-opacity='0.03' stroke-width='1'%3E%3Cpath d='M60 0 L60 120 M0 60 L120 60 M0 0 L120 120 M0 120 L120 0'/%3E%3Ccircle cx='60' cy='60' r='50'/%3E%3Ccircle cx='60' cy='60' r='30'/%3E%3Crect x='30' y='30' width='60' height='60' transform='rotate(45 60 60)'/%3E%3Crect x='30' y='30' width='60' height='60'/%3E%3C/g%3E%3C/svg%3E") !important;
+            background-attachment: fixed !important;
+        }
+
+        /* Global blue focus and accent purge */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 2px solid var(--gold) !important;
+            outline-offset: 2px !important;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5) !important;
+        }
+
+        ::selection {
+            background-color: var(--wine-red) !important;
+            color: var(--ivory) !important;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px !important;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--ivory) !important;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--wine-red) !important;
+            border-radius: 5px !important;
+            border: 2px solid var(--ivory) !important;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--burgundy) !important;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-headings) !important;
+            color: var(--burgundy) !important;
+            font-weight: 700 !important;
+        }
+
+        p {
+            font-family: var(--font-body) !important;
+            color: var(--charcoal) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        /* Polished Sandalwood/Teak Carved Wood Navbar with Gold trim */
+        nav.nav-bar {
+            position: sticky !important;
+            top: 20px !important;
+            z-index: 1000 !important;
+            margin: 1.5rem auto !important;
+            max-width: 1100px !important;
+            width: 90% !important;
+            border-radius: 12px !important;
+            background: linear-gradient(to bottom, #321014 0%, #1e0709 100%) !important;
+            border: 3px double var(--gold) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.25), inset 0 1px 2px rgba(212, 175, 55, 0.3) !important;
+            padding: 0.65rem 2rem !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        nav.nav-bar.nav-scrolled {
+            top: 8px !important;
+            background: linear-gradient(to bottom, #250b0e 0%, #110305 100%) !important;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.4), inset 0 1px 2px rgba(212, 175, 55, 0.45) !important;
+            border-color: var(--gold) !important;
+        }
+
+        .nav-container {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+
+        /* Redesigned Brand Logo Styles */
+        .nav-logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+            text-decoration: none !important;
+            transition: var(--transition-smooth) !important;
+        }
+        
+        .logo-svg {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        
+        .nav-logo:hover .logo-svg {
+            transform: scale(1.05) rotate(5deg) !important;
+        }
+
+        .logo-text-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+
+        .logo-title {
+            font-family: 'Cinzel', serif !important;
+            font-weight: 800 !important;
+            font-size: 1.45rem !important;
+            color: var(--emerald) !important;
+            letter-spacing: 1.5px !important;
+            line-height: 1.1 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        nav.nav-bar.nav-scrolled .logo-title {
+            color: #2ab684 !important; /* Brighter emerald green for scroll background visibility */
+        }
+
+        .logo-tagline {
+            font-family: 'Marcellus', serif !important;
+            font-weight: 600 !important;
+            font-size: 0.65rem !important;
+            color: var(--gold) !important;
+            letter-spacing: 1.2px !important;
+            text-transform: uppercase !important;
+            margin-top: 2px !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1.5rem !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            list-style: none !important;
+        }
+
+        .nav-links a {
+            color: var(--beige) !important;
+            text-decoration: none !important;
+            font-family: 'Marcellus', serif !important;
+            font-weight: 600 !important;
+            font-size: 0.88rem !important;
+            letter-spacing: 0.8px !important;
+            text-transform: uppercase !important;
+            position: relative !important;
+            padding: 0.4rem 0.8rem !important;
+            border-radius: 4px !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        nav.nav-bar.nav-scrolled .nav-links a {
+            color: var(--beige) !important;
+        }
+
+        .nav-links a:hover {
+            color: var(--ivory) !important;
+            background-color: var(--wine-red) !important;
+        }
+
+        /* Active item: Wine Red background, Gold underline indicator */
+        .nav-links a.active {
+            color: var(--gold) !important;
+            background-color: var(--wine-red) !important;
+        }
+
+
+        /* Main Page Layout */
+        main {
+            max-width: 1100px !important;
+            margin: 3rem auto !important;
+            padding: 0 1.5rem !important;
+        }
+
+        /* Palace Welcome Section */
+        .welcome-palace {
+            max-width: 1000px !important;
+            margin: 3.5rem auto !important;
+            position: relative !important;
+        }
+
+        .welcome-content {
+            background-color: #fdfcf9 !important;
+            border: 2px solid var(--gold) !important;
+            border-radius: 16px !important;
+            padding: 3.5rem !important;
+            box-shadow: 0 15px 35px rgba(92, 60, 30, 0.05) !important;
+            position: relative !important;
+        }
+
+        .welcome-content::before {
+            content: '' !important;
+            position: absolute !important;
+            top: -16px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 50px !important;
+            height: 25px !important;
+            background-color: var(--gold) !important;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%) !important;
+        }
+
+        .welcome-content h2 {
+            font-family: 'Cinzel', serif !important;
+            color: var(--burgundy) !important;
+            text-align: center !important;
+            font-size: 2.25rem !important;
+            margin-bottom: 2rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+        }
+
+        .welcome-content p {
+            color: var(--charcoal) !important;
+            font-family: 'Lora', serif !important;
+            font-size: 1.1rem !important;
+            text-align: justify !important;
+            line-height: 1.8 !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        /* Immersive Palace Hero Section */
+        .hero-palace {
+            position: relative !important;
+            min-height: 75vh !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            border-radius: 24px !important;
+            overflow: hidden !important;
+            margin: 2.5rem auto !important;
+            max-width: 1100px !important;
+            width: 100% !important;
+            border: 2.5px solid var(--gold) !important;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35) !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            /* Majestic Badshahi Mosque sunset image */
+            background-image: 
+                linear-gradient(135deg, rgba(13, 92, 74, 0.8) 0%, rgba(91, 31, 31, 0.85) 100%),
+                url("https://images.unsplash.com/photo-1595166292353-847240a5a676?auto=format&fit=crop&w=1600&q=80") !important;
+        }
+
+        .hero-arch-frame {
+            position: absolute !important;
+            top: 25px !important;
+            bottom: 25px !important;
+            left: 25px !important;
+            right: 25px !important;
+            border: 1px solid rgba(212, 175, 55, 0.25) !important;
+            pointer-events: none !important;
+            border-radius: 16px !important;
+            z-index: 2 !important;
+        }
+
+        .hero-arch-frame::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 6px !important;
+            bottom: 6px !important;
+            left: 6px !important;
+            right: 6px !important;
+            border: 2.5px solid var(--gold) !important;
+            border-radius: 12px !important;
+            opacity: 0.65 !important;
+        }
+
+        .hero-content {
+            position: relative !important;
+            z-index: 5 !important;
+            max-width: 800px !important;
+            padding: 3.5rem 2rem !important;
+        }
+
+        .hero-ornament {
+            color: var(--gold) !important;
+            font-size: 1.6rem !important;
+            margin-bottom: 1.5rem !important;
+            letter-spacing: 6px !important;
+            animation: pulse 3s ease-in-out infinite !important;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif !important;
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            color: var(--ivory) !important;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+            margin-bottom: 1.5rem !important;
+            letter-spacing: 2px !important;
+            line-height: 1.25 !important;
+        }
+
+        .hero-subtitle {
+            font-family: 'Lora', serif !important;
+            font-size: 1.3rem !important;
+            color: var(--beige) !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+            line-height: 1.65 !important;
+            margin-bottom: 2.75rem !important;
+        }
+
+        .luxury-gold-btn {
+            display: inline-block !important;
+            background: linear-gradient(135deg, var(--gold) 0%, #B89020 100%) !important;
+            color: var(--charcoal) !important;
+            border: 1px solid var(--ivory) !important;
+            padding: 1.1rem 3rem !important;
+            font-family: 'Cinzel', serif !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            text-decoration: none !important;
+            border-radius: 30px !important;
+            box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+            transition: var(--transition-smooth) !important;
+            cursor: pointer !important;
+        }
+
+        .luxury-gold-btn:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.65) !important;
+            color: #000 !important;
+        }
+
+        /* Floating Lantern atmospheric effects */
+        .floating-lantern {
+            position: absolute !important;
+            width: 55px !important;
+            height: 80px !important;
+            z-index: 3 !important;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.65)) !important;
+            opacity: 0.85 !important;
+        }
+
+        .lantern-1 {
+            top: 15% !important;
+            left: 8% !important;
+            animation: float 7s ease-in-out infinite !important;
+        }
+
+        .lantern-2 {
+            bottom: 20% !important;
+            right: 8% !important;
+            animation: float 9s ease-in-out infinite !important;
+            animation-delay: 1.5s !important;
+        }
+
+        /* Section dividers */
+        main > section {
+            margin-bottom: 5rem !important;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif !important;
+            color: var(--burgundy) !important;
+            font-size: 2.25rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            border-bottom: 2px solid var(--gold) !important;
+            padding-bottom: 0.75rem !important;
+            margin-bottom: 2.5rem !important;
+            text-align: center !important;
+            position: relative !important;
+        }
+
+        h2::after {
+            content: '❖' !important;
+            position: absolute !important;
+            bottom: -11px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            background-color: var(--ivory) !important;
+            color: var(--gold) !important;
+            padding: 0 10px !important;
+            font-size: 1rem !important;
+        }
+
+        /* Destination Responsive Cards Grid */
+        .destinations {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+            gap: 2.5rem !important;
+        }
+
+        .destinations h2 {
+            grid-column: 1 / -1 !important;
+        }
+
+        /* Heritage Cards (Emerald Background, Gold Border, Ivory Text) */
+        .destinations article,
+        .why-visit article,
+        section.food-bazaar article {
+            background: var(--emerald) !important;
+            border: 2px solid var(--gold) !important;
+            color: var(--ivory) !important;
+            border-radius: 16px !important;
+            padding: 2.5rem !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 15px rgba(212, 175, 55, 0.05) !important;
+            transition: var(--transition-smooth) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        /* Card Top Ornaments */
+        .destinations article::before,
+        .why-visit article::before,
+        section.food-bazaar article::before {
+            content: '❖' !important;
+            position: absolute !important;
+            top: 10px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            color: var(--gold) !important;
+            font-size: 1.1rem !important;
+            opacity: 0.8 M !important;
+        }
+
+        .destinations article:hover,
+        .why-visit article:hover,
+        section.food-bazaar article:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25), 0 0 25px rgba(212, 175, 55, 0.25) !important;
+            border-color: #fce2a2 !important;
+        }
+
+        .destinations article h3,
+        .why-visit article h3,
+        section.food-bazaar article h3 {
+            font-family: 'Cinzel', serif !important;
+            color: var(--gold) !important;
+            font-size: 1.35rem !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            margin-top: 0.75rem !important;
+            margin-bottom: 1.5rem !important;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+            padding-bottom: 0.5rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .destinations article p,
+        .why-visit article p,
+        section.food-bazaar article p {
+            color: var(--ivory) !important;
+            font-family: 'Lora', serif !important;
+            font-size: 1.02rem !important;
+            line-height: 1.7 !important;
+            text-align: justify !important;
+        }
+
+        /* Palace-style Image Frames */
+        .destinations article figure,
+        section article figure {
+            margin: 0 0 1.5rem 0 !important;
+            overflow: hidden !important;
+            border-radius: 12px !important;
+            border: 2px solid var(--gold) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+            position: relative !important;
+        }
+
+        .destinations article img,
+        section article img {
+            width: 100% !important;
+            height: 240px !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .destinations article:hover img,
+        section article:hover img {
+            transform: scale(1.08) !important;
+        }
+
+        .destinations article figcaption,
+        section article figcaption {
+            background: rgba(13, 92, 74, 0.95) !important;
+            color: var(--beige) !important;
+            padding: 0.65rem 1rem !important;
+            font-size: 0.85rem !important;
+            font-style: italic !important;
+            text-align: center !important;
+            border-top: 1px solid rgba(212, 175, 55, 0.25) !important;
+        }
+
+        /* Gold button inside cards */
+        .luxury-card-btn {
+            display: inline-block !important;
+            margin-top: auto !important;
+            align-self: center !important;
+            background: transparent !important;
+            border: 1px solid var(--gold) !important;
+            color: var(--gold) !important;
+            padding: 0.6rem 1.5rem !important;
+            font-family: 'Cinzel', serif !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            text-decoration: none !important;
+            border-radius: 4px !important;
+            transition: var(--transition-smooth) !important;
+            cursor: pointer !important;
+        }
+
+        .luxury-card-btn:hover {
+            background: var(--gold) !important;
+            color: var(--emerald) !important;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        /* Alternating Grid layouts for Featured UNESCO sites (First Grid) */
+        .destinations:first-of-type {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 3.5rem !important;
+        }
+
+        .destinations:first-of-type article {
+            display: grid !important;
+            grid-template-columns: 1.25fr 1fr !important;
+            gap: 3rem !important;
+            align-items: center !important;
+        }
+
+        .destinations:first-of-type article:nth-of-type(even) {
+            grid-template-columns: 1fr 1.25fr !important;
+        }
+
+        .destinations:first-of-type article:nth-of-type(even) figure {
+            grid-column: 2 !important;
+            grid-row: 1 !important;
+        }
+
+        .destinations:first-of-type article figure {
+            margin-bottom: 0 !important;
+        }
+
+        /* Regular non-grid sections styled as luxury sandstone scrolls */
+        main > section:not(.destinations):not(.why-visit):not(.hero-palace):not(.welcome-palace):not(.history-timeline):not(.gallery-section) {
+            background-color: #fdfbf7 !important;
+            border: 1.5px solid #eadfc9 !important;
+            border-radius: 16px !important;
+            padding: 3.5rem !important;
+            box-shadow: 0 12px 30px rgba(92, 60, 30, 0.03) !important;
+            position: relative !important;
+        }
+
+        main > section:not(.destinations):not(.why-visit):not(.hero-palace):not(.welcome-palace):not(.history-timeline):not(.gallery-section) h2 {
+            border-left: none !important;
+            padding-left: 0 !important;
+            margin-bottom: 2.25rem !important;
+        }
+
+        main > section:not(.destinations):not(.why-visit):not(.hero-palace):not(.welcome-palace):not(.history-timeline):not(.gallery-section) article {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            margin-bottom: 0 !important;
+        }
+
+        main > section:not(.destinations):not(.why-visit):not(.hero-palace):not(.welcome-palace):not(.history-timeline):not(.gallery-section) article p {
+            color: var(--charcoal) !important;
+            font-family: 'Lora', serif !important;
+        }
+
+        /* Timelined Storytelling History corridors */
+        .history-timeline {
+            position: relative !important;
+        }
+
+        .timeline-container {
+            position: relative !important;
+            margin: 3rem 0 !important;
+            padding-left: 3.5rem !important;
+        }
+
+        .timeline-line {
+            position: absolute !important;
+            left: 20px !important;
+            top: 15px !important;
+            bottom: 15px !important;
+            width: 3px !important;
+            background: linear-gradient(to bottom, var(--gold) 0%, var(--emerald) 50%, var(--gold) 100%) !important;
+            border-radius: 4px !important;
+        }
+
+        .timeline-item {
+            position: relative !important;
+            margin-bottom: 2.5rem !important;
+        }
+
+        .timeline-item:last-of-type {
+            margin-bottom: 0 !important;
+        }
+
+        .timeline-dot {
+            position: absolute !important;
+            left: -33px !important;
+            top: 25px !important;
+            background: var(--burgundy) !important;
+            border: 2px solid var(--gold) !important;
+            color: var(--gold) !important;
+            width: 30px !important;
+            height: 30px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 0.8rem !important;
+            z-index: 2 !important;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4) !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.25) rotate(15deg) !important;
+            background: var(--emerald) !important;
+        }
+
+        .timeline-item article {
+            margin-bottom: 0 !important;
+        }
+
+        /* Food section styled as Burgundy spiced cards */
+        section.food-bazaar article {
+            background: var(--burgundy) !important;
+            border: 2.5px double var(--gold) !important;
+        }
+
+        section.food-bazaar article::before {
+            content: '❖' !important;
+        }
+
+        section.food-bazaar article h3 {
+            color: var(--gold) !important;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Styled List elements */
+        main > section:not(.destinations):not(.why-visit) ul {
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+
+        main > section:not(.destinations):not(.why-visit) li {
+            position: relative !important;
+            padding-left: 1.75rem !important;
+            margin-bottom: 1.25rem !important;
+            font-size: 1.05rem !important;
+            color: var(--charcoal) !important;
+        }
+
+        main > section:not(.destinations):not(.why-visit) li::before {
+            content: '✦' !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: var(--gold) !important;
+            font-weight: bold !important;
+        }
+
+        main > section:not(.destinations):not(.why-visit) li strong {
+            color: var(--burgundy) !important;
+            font-family: 'Marcellus', serif !important;
+        }
+
+        /* Facts grid overrides */
+        .facts-wrapper-card {
+            padding: 3rem !important;
+        }
+
+        .facts-intro {
+            color: var(--ivory) !important;
+            text-align: center !important;
+            font-size: 1.15rem !important;
+            max-width: 800px !important;
+            margin: 0 auto 2.5rem auto !important;
+        }
+
+        .facts-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 2rem !important;
+        }
+
+        .fact-card {
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1.5px solid rgba(212, 175, 55, 0.25) !important;
+            border-radius: 12px !important;
+            padding: 2rem 1.5rem !important;
+            text-align: center !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        .fact-card:hover {
+            background: rgba(212, 175, 55, 0.12) !important;
+            transform: translateY(-5px) !important;
+            border-color: var(--gold) !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .fact-icon {
+            font-size: 2.25rem !important;
+            display: block !important;
+            margin-bottom: 1rem !important;
+            color: var(--gold) !important;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.2)) !important;
+        }
+
+        .fact-card h4 {
+            font-family: 'Cinzel', serif !important;
+            color: var(--gold) !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .fact-card p {
+            font-size: 0.95rem !important;
+            text-align: center !important;
+            color: var(--ivory) !important;
+            margin: 0 !important;
+        }
+
+        /* Heritage Photo Gallery Section */
+        .gallery-section {
+            margin-bottom: 5rem !important;
+        }
+
+        .gallery-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+            gap: 1.75rem !important;
+        }
+
+        .gallery-item {
+            position: relative !important;
+            overflow: hidden !important;
+            border-radius: 12px !important;
+            border: 2px solid var(--gold) !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+            aspect-ratio: 4 / 3 !important;
+            cursor: pointer !important;
+        }
+
+        .gallery-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) !important;
+        }
+
+        .gallery-caption {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background: linear-gradient(to top, rgba(13, 92, 74, 0.95) 0%, rgba(13, 92, 74, 0.5) 75%, transparent 100%) !important;
+            color: var(--ivory) !important;
+            padding: 2rem 1rem 1rem 1rem !important;
+            font-family: 'Cinzel', serif !important;
+            font-size: 0.95rem !important;
+            text-align: center !important;
+            transform: translateY(100%) !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0) !important;
+        }
+
+        /* Lightbox modal styles */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 28, 28, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .lightbox-content {
+            max-width: 85%;
+            max-height: 80%;
+            border: 3.5px solid var(--gold) !important;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.4);
+            animation: zoomIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            color: var(--ivory);
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--gold);
+        }
+
+        #lightbox-caption {
+            margin-top: 20px;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Majestic Royal Footer */
+        .royal-footer {
+            background-color: var(--emerald) !important;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 80%),
+                /* Islamic pattern behind footer */
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-opacity='0.03' stroke-width='1'%3E%3Ccircle cx='60' cy='60' r='50'/%3E%3Crect x='10' y='10' width='100' height='100'/%3E%3C/g%3E%3C/svg%3E") !important;
+            border-top: 5px double var(--gold) !important;
+            color: var(--ivory) !important;
+            padding: 5rem 2rem 2.5rem 2rem !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        .footer-content {
+            max-width: 1100px !important;
+            margin: 0 auto 4rem auto !important;
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+            gap: 3.5rem !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        .footer-brand h3, 
+        .footer-contact h4, 
+        .footer-social h4 {
+            font-family: 'Cinzel', serif !important;
+            color: var(--gold) !important;
+            margin-bottom: 1.5rem !important;
+            font-size: 1.25rem !important;
+            letter-spacing: 0.5px !important;
+            text-transform: uppercase !important;
+        }
+
+        .footer-brand p, 
+        .footer-contact p, 
+        .footer-social p {
+            color: var(--beige) !important;
+            font-family: 'Lora', serif !important;
+            font-size: 0.98rem !important;
+            line-height: 1.65 !important;
+            margin-bottom: 0.65rem !important;
+        }
+
+        .footer-logo {
+            font-size: 2.25rem !important;
+            display: block !important;
+            margin-bottom: 0.75rem !important;
+            color: var(--gold) !important;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3)) !important;
+        }
+
+        .social-links {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0.65rem !important;
+        }
+
+        .social-icon {
+            color: var(--beige) !important;
+            text-decoration: none !important;
+            font-family: 'Lora', serif !important;
+            font-size: 0.98rem !important;
+            transition: var(--transition-smooth) !important;
+            display: inline-block !important;
+        }
+
+        .social-icon:hover {
+            color: var(--gold) !important;
+            transform: translateX(6px) !important;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.15) !important;
+            padding-top: 2rem !important;
+            text-align: center !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        .footer-bottom p {
+            color: var(--beige) !important;
+            font-size: 0.88rem !important;
+            margin-bottom: 0.35rem !important;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-16px) rotate(4deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .destinations:first-of-type article {
+                grid-template-columns: 1fr !important;
+            }
+
+            .destinations:first-of-type article:nth-of-type(even) {
+                grid-template-columns: 1fr !important;
+            }
+
+            .destinations:first-of-type article:nth-of-type(even) figure {
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav.nav-bar {
+                border-radius: 20px !important;
+                padding: 1rem !important;
+            }
+
+            .nav-container {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .nav-links {
+                width: 100% !important;
+                justify-content: center !important;
+                flex-wrap: wrap !important;
+                gap: 1rem !important;
+            }
+
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem !important;
+            }
+
+            main {
+                margin: 1.5rem auto !important;
+                padding: 0 1rem !important;
+            }
+
+            h2 {
+                font-size: 1.75rem !important;
+            }
+
+            main > section:not(.destinations):not(.why-visit):not(.hero-palace):not(.welcome-palace):not(.history-timeline):not(.gallery-section) {
+                padding: 1.75rem !important;
+            }
+
+            .welcome-content {
+                padding: 2rem 1.5rem !important;
+            }
+
+            .timeline-container {
+                padding-left: 2rem !important;
+            }
+
+            .timeline-line {
+                left: 10px !important;
+            }
+
+            .timeline-dot {
+                left: -22px !important;
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 0.7rem !important;
+            }
+        }
+
+        /* Royal Palace-Carving Divider Separator */
+        .palace-divider {
+            height: 50px !important;
+            margin: 4.5rem auto !important;
+            max-width: 700px !important;
+            width: 85% !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            background-size: contain !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40' width='100%25' height='100%25'%3E%3Cpath d='M 10,20 Q 100,10 200,20 T 390,20' fill='none' stroke='%23D4AF37' stroke-width='1.5'/%3E%3Cpath d='M 10,20 Q 100,30 200,20 T 390,20' fill='none' stroke='%23D4AF37' stroke-width='0.5'/%3E%3Cg fill='%237A1E24' stroke='%23D4AF37' stroke-width='1'%3E%3Crect x='190' y='10' width='20' height='20' transform='rotate(45 200 20)'/%3E%3Ccircle cx='170' cy='20' r='4'/%3E%3Ccircle cx='230' cy='20' r='4'/%3E%3Cpath d='M 130,20 Q 150,10 170,20' fill='none'/%3E%3Cpath d='M 270,20 Q 250,10 230,20' fill='none'/%3E%3Cpath d='M 120,20 C 120,15 110,12 100,20 C 90,28 80,20 80,20' fill='none'/%3E%3Cpath d='M 280,20 C 280,15 290,12 300,20 C 310,28 320,20 320,20' fill='none'/%3E%3C/g%3E%3Cg fill='%23D4AF37'%3E%3Ccircle cx='200' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E") !important;
+        }
+
+        /* Royal Palace Art Frame for Images and Gallery Items */
+        figure, .gallery-item {
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            border: 3px double var(--gold) !important;
+            box-shadow: 0 10px 25px rgba(91, 31, 31, 0.15), 0 4px 10px rgba(212, 175, 55, 0.08) !important;
+            margin-bottom: 1.5rem !important;
+            background-color: var(--ivory) !important;
+            transition: var(--transition-smooth) !important;
+            position: relative !important;
+        }
+
+        figure img, .gallery-item img {
+            width: 100% !important;
+            height: 240px !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease !important;
+            filter: sepia(8%) contrast(102%) !important;
+        }
+
+        figure:hover, .gallery-item:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 35px rgba(110, 31, 42, 0.25), 0 0 20px rgba(212, 175, 55, 0.2) !important;
+            border-color: #fce2a2 !important;
+        }
+
+        figure:hover img, .gallery-item:hover img {
+            transform: scale(1.06) !important;
+            filter: sepia(0%) contrast(105%) !important;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 4 / 3 !important;
+        }
+        .gallery-item img {
+            height: 100% !important;
+        }
+
+        /* Explore Lahore Section Styles */
+        .explore-lahore-section {
+            background-color: #fdfbf7 !important;
+            border: 2px solid var(--gold) !important;
+            border-radius: 16px !important;
+            padding: 3.5rem !important;
+            box-shadow: 0 15px 35px rgba(92, 60, 30, 0.04) !important;
+            margin-bottom: 5rem !important;
+            position: relative !important;
+        }
+
+        .explore-container {
+            display: grid !important;
+            grid-template-columns: 1.1fr 0.9fr !important;
+            gap: 3.5rem !important;
+            align-items: center !important;
+        }
+
+        @media (max-width: 900px) {
+            .explore-container {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+            }
+        }
+
+        .map-container {
+            width: 100% !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            border: 2.5px solid var(--gold) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+            background-color: #F3EFE6 !important;
+        }
+
+        .lahore-svg-map {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+
+        /* Ping animation for golden markers */
+        .ping-circle {
+            animation: mapPing 2s ease-in-out infinite !important;
+            transform-origin: center !important;
+        }
+
+        @keyframes mapPing {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            50% { transform: scale(1.6); opacity: 0; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+
+        .map-pin {
+            cursor: pointer !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        .map-pin path {
+            transition: fill 0.3s ease, transform 0.3s ease !important;
+        }
+
+        .map-pin:hover path {
+            fill: var(--wine-red) !important;
+            transform: scale(1.15) translate(0px, -2px) !important;
+        }
+
+        .pin-label {
+            font-family: 'Marcellus', serif !important;
+            font-size: 11px !important;
+            font-weight: bold !important;
+            fill: var(--burgundy) !important;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease !important;
+            pointer-events: none !important;
+            transform: translateY(2px) !important;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .map-pin:hover .pin-label {
+            opacity: 1 !important;
+            transform: translateY(0px) !important;
+        }
+
+        /* Royal Facts Card styling */
+        .royal-facts-card {
+            background-color: var(--emerald) !important;
+            border: 2px double var(--gold) !important;
+            border-radius: 12px !important;
+            padding: 2rem !important;
+            color: var(--ivory) !important;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1.5rem !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+            margin-top: 1.5rem !important;
+        }
+
+        @media (max-width: 480px) {
+            .royal-facts-card {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .royal-fact-item {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.88rem !important;
+        }
+
+        .royal-fact-icon {
+            font-size: 1.8rem !important;
+            color: var(--gold) !important;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)) !important;
+        }
+
+        .royal-fact-item div {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .royal-fact-item strong {
+            font-family: 'Marcellus', serif !important;
+            font-size: 0.85rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            color: var(--gold) !important;
+            margin-bottom: 2px !important;
+        }
+
+        .royal-fact-item span {
+            font-family: 'Lora', serif !important;
+            font-size: 0.98rem !important;
+            color: var(--ivory) !important;
+        }
+
+        /* Global style for why-visit article grid images layout */
+        .why-visit article figure {
+            margin-bottom: 1.5rem !important;
+        }
+
+        /* Vector Icons Styling Override */
+        .fact-icon-svg, .royal-fact-icon-svg, .footer-icon-svg, .timeline-icon-svg {
+            width: 24px !important;
+            height: 24px !important;
+            stroke: var(--gold) !important;
+            fill: none !important;
+            stroke-width: 1.75 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+            display: inline-block !important;
+            vertical-align: middle !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        .fact-icon {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .fact-icon-svg {
+            width: 38px !important;
+            height: 38px !important;
+        }
+
+        .fact-card:hover .fact-icon-svg {
+            transform: scale(1.15) !important;
+            stroke: var(--ivory) !important;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8)) !important;
+        }
+
+        .royal-fact-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .royal-fact-icon-svg {
+            width: 28px !important;
+            height: 28px !important;
+        }
+
+        .royal-fact-item:hover .royal-fact-icon-svg {
+            transform: scale(1.1) !important;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.6)) !important;
+        }
+
+        .timeline-dot {
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            overflow: hidden !important;
+        }
+
+        .timeline-icon-svg {
+            width: 16px !important;
+            height: 16px !important;
+            stroke: var(--gold) !important;
+            stroke-width: 2 !important;
+        }
+
+        .timeline-item:hover .timeline-icon-svg {
+            stroke: var(--ivory) !important;
+            transform: scale(1.15) !important;
+        }
+
+        .footer-icon-svg {
+            width: 18px !important;
+            height: 18px !important;
+            margin-right: 0.75rem !important;
+            stroke-width: 2 !important;
+        }
+
+        .footer-contact p {
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        /* Hero Logo styling */
+        .hero-logo-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+            margin: 0 auto 2.5rem auto !important;
+            max-width: 280px !important;
+            text-align: center !important;
+            animation: pulse 3s ease-in-out infinite !important;
+        }
+
+        .hero-logo-svg {
+            filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.5)) !important;
+            transition: var(--transition-smooth) !important;
+        }
+
+        .hero-logo-container:hover .hero-logo-svg {
+            transform: scale(1.08) rotate(3deg) !important;
+        }
+
+        .hero-logo-text {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2px !important;
+        }
+
+        .hero-logo-title {
+            font-family: 'Cinzel', serif !important;
+            font-weight: 800 !important;
+            font-size: 2.2rem !important;
+            color: var(--gold) !important;
+            letter-spacing: 2px !important;
+            line-height: 1.1 !important;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        .hero-logo-tagline {
+            font-family: 'Marcellus', serif !important;
+            font-weight: 600 !important;
+            font-size: 0.75rem !important;
+            color: var(--beige) !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* SVG lantern replacement styling */
+        .lantern-svg {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
+    <header class="royal-header-main" style="display: none;">
         <h1>Lahore</h1>
         <p class="tagline">The Heart of Pakistan and Capital of Punjab</p>
     </header>
 
     <nav class="nav-bar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="lahore.html">Lahore</a></li>
-            <li><a href="#hunza.html">Hunza Valley</a></li>
-            <li><a href="#karachi.html">Karachi</a></li>
-            <li><a href="index.html">Swat</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <svg class="logo-svg" width="55" height="55" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="rgba(110, 31, 42, 0.08)" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <path d="M 25 82 L 25 50 C 25 35, 33 28, 50 12 C 67 28, 75 35, 75 50 L 75 82 Z" stroke="#6E1F2A" stroke-width="2.5" fill="none" />
+                    <path d="M 20 82 L 20 48 C 20 30, 30 22, 50 5 C 70 22, 80 30, 80 48 L 80 82" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+                    <path d="M 50 30 L 54 41 L 65 41 L 56 48 L 60 60 L 50 52 L 40 60 L 44 48 L 35 41 L 46 41 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1" transform="rotate(0 50 50)"/>
+                    <path d="M 50 30 L 54 41 L 65 41 L 56 48 L 60 60 L 50 52 L 40 60 L 44 48 L 35 41 L 46 41 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1" transform="rotate(45 50 50)"/>
+                    <circle cx="50" cy="50" r="7" fill="#6E1F2A" />
+                    <circle cx="50" cy="50" r="4" fill="#D4AF37" />
+                    <path d="M 50 18 L 52 32 L 48 32 Z" fill="#D4AF37"/>
+                    <path d="M 50 82 L 52 68 L 48 68 Z" fill="#D4AF37"/>
+                    <path d="M 18 50 L 32 52 L 32 48 Z" fill="#D4AF37"/>
+                    <path d="M 82 50 L 68 52 L 68 48 Z" fill="#D4AF37"/>
+                </svg>
+                <div class="logo-text-wrapper">
+                    <span class="logo-title">PakVista</span>
+                    <span class="logo-tagline">Heritage • Culture • Journey</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lahore.html" class="active">Lahore</a></li>
+                <li><a href="#hunza.html">Hunza Valley</a></li>
+                <li><a href="#karachi.html">Karachi</a></li>
+                <li><a href="index.html">Swat</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
-        <section class="hero">
-            <h2>Welcome to Lahore</h2>
-            <p>
-                Lahore, the capital city of the Punjab province in Pakistan, is widely known as the &quot;Heart of
-                Pakistan&quot; and the &quot;City of Gardens.&quot; It is the second-largest metropolitan area in the
-                country and stands as a major historical, cultural, educational, and economic hub. With a history
-                stretching back over a thousand years, Lahore has witnessed the rise and fall of several great empires,
-                leaving behind a rich tapestry of art, architecture, and traditions.
-            </p>
-            <p>
-                From the grand monumentality of the Mughal era to the ornate structures of the British colonial era, the
-                city serves as a living museum of South Asian history. Today, Lahore is a bustling modern metropolis
-                that seamlessly blends its historic charm with contemporary development, offering visitors a sensory
-                journey through vibrant food streets, bustling traditional bazaars, green parks, and magnificent
-                architectural masterpieces.
-            </p>
+        <section class="hero-palace">
+            <div class="hero-overlay"></div>
+            <div class="hero-arch-frame"></div>
+            
+            <div class="hero-content">
+                <div class="hero-logo-container">
+                    <svg class="hero-logo-svg" width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="rgba(248, 245, 238, 0.08)" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="3,3"/>
+                        <path d="M 25 82 L 25 50 C 25 35, 33 28, 50 12 C 67 28, 75 35, 75 50 L 75 82 Z" stroke="#D4AF37" stroke-width="2.5" fill="none" />
+                        <path d="M 20 82 L 20 48 C 20 30, 30 22, 50 5 C 70 22, 80 30, 80 48 L 80 82" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+                        <path d="M 50 30 L 54 41 L 65 41 L 56 48 L 60 60 L 50 52 L 40 60 L 44 48 L 35 41 L 46 41 Z" fill="#D4AF37" stroke="#7A1E24" stroke-width="1" transform="rotate(0 50 50)"/>
+                        <path d="M 50 30 L 54 41 L 65 41 L 56 48 L 60 60 L 50 52 L 40 60 L 44 48 L 35 41 L 46 41 Z" fill="#D4AF37" stroke="#7A1E24" stroke-width="1" transform="rotate(45 50 50)"/>
+                        <circle cx="50" cy="50" r="7" fill="#7A1E24" />
+                        <circle cx="50" cy="50" r="4" fill="#D4AF37" />
+                        <path d="M 50 18 L 52 32 L 48 32 Z" fill="#D4AF37"/>
+                        <path d="M 50 82 L 52 68 L 48 68 Z" fill="#D4AF37"/>
+                        <path d="M 18 50 L 32 52 L 32 48 Z" fill="#D4AF37"/>
+                        <path d="M 82 50 L 68 52 L 68 48 Z" fill="#D4AF37"/>
+                    </svg>
+                    <div class="hero-logo-text">
+                        <span class="hero-logo-title">PakVista</span>
+                        <span class="hero-logo-tagline">Heritage • Culture • Journey</span>
+                    </div>
+                </div>
+                <h2 class="hero-title">Discover the Royal Heart of Lahore</h2>
+                <p class="hero-subtitle">Step into a timeless realm of Mughal grandeur, majestic palaces, and vibrant historic alleyways where legends breathe and empires left their golden footprints.</p>
+                <a href="#quick-facts" class="luxury-gold-btn">
+                    <span>Explore the Heritage</span>
+                </a>
+            </div>
+            
+            <div class="floating-lantern lantern-1">
+                <svg class="lantern-svg" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="8" r="5" stroke="#D4AF37" stroke-width="2"/>
+                    <path d="M10 15 L30 15 L25 10 L15 10 Z" fill="#D4AF37" stroke="#7A1E24" stroke-width="1"/>
+                    <path d="M8 15 L12 45 L28 45 L32 15 Z" fill="rgba(212, 175, 55, 0.25)" stroke="#D4AF37" stroke-width="2"/>
+                    <path d="M12 15 L16 45 M28 15 L24 45 M20 15 L20 45" stroke="#D4AF37" stroke-width="1.5"/>
+                    <path d="M9.5 25 L30.5 25 M11 35 L29 35" stroke="#D4AF37" stroke-width="1"/>
+                    <circle cx="20" cy="30" r="6" fill="#FFA500" />
+                    <rect x="11" y="45" width="18" height="5" rx="1" fill="#D4AF37" stroke="#7A1E24" stroke-width="1"/>
+                    <path d="M13 50 L27 50 L24 55 L16 55 Z" fill="#D4AF37" stroke="#7A1E24" stroke-width="1"/>
+                </svg>
+            </div>
+            <div class="floating-lantern lantern-2">
+                <svg class="lantern-svg" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="8" r="5" stroke="#D4AF37" stroke-width="2"/>
+                    <path d="M10 15 L30 15 L25 10 L15 10 Z" fill="#D4AF37" stroke="#7A1E24" stroke-width="1"/>
+                    <path d="M8 15 L12 45 L28 45 L32 15 Z" fill="rgba(212, 175, 55, 0.25)" stroke="#D4AF37" stroke-width="2"/>
+                    <path d="M12 15 L16 45 M28 15 L24 45 M20 15 L20 45" stroke="#D4AF37" stroke-width="1.5"/>
+                    <path d="M9.5 25 L30.5 25 M11 35 L29 35" stroke="#D4AF37" stroke-width="1"/>
+                    <circle cx="20" cy="30" r="6" fill="#FFA500" />
+                    <rect x="11" y="45" width="18" height="5" rx="1" fill="#D4AF37" stroke="#7A1E24" stroke-width="1"/>
+                    <path d="M13 50 L27 50 L24 55 L16 55 Z" fill="#D4AF37" stroke="#7A1E24" stroke-width="1"/>
+                </svg>
+            </div>
         </section>
 
-        <section>
-            <h2>Quick Facts</h2>
-            <article>
+        <div class="palace-divider"></div>
+
+        <section class="welcome-palace" id="welcome">
+            <div class="welcome-content">
+                <h2>Welcome to Lahore</h2>
                 <p>
+                    Lahore, the capital city of the Punjab province in Pakistan, is widely known as the &quot;Heart of
+                    Pakistan&quot; and the &quot;City of Gardens.&quot; It is the second-largest metropolitan area in the
+                    country and stands as a major historical, cultural, educational, and economic hub. With a history
+                    stretching back over a thousand years, Lahore has witnessed the rise and fall of several great empires,
+                    leaving behind a rich tapestry of art, architecture, and traditions.
+                </p>
+                <p>
+                    From the grand monumentality of the Mughal era to the ornate structures of the British colonial era, the
+                    city serves as a living museum of South Asian history. Today, Lahore is a bustling modern metropolis
+                    that seamlessly blends its historic charm with contemporary development, offering visitors a sensory
+                    journey through vibrant food streets, bustling traditional bazaars, green parks, and magnificent
+                    architectural masterpieces.
+                </p>
+            </div>
+        </section>
+
+        <div class="palace-divider"></div>
+
+        <section class="quick-facts-section" id="quick-facts">
+            <h2>Quick Facts</h2>
+            <article class="facts-wrapper-card">
+                <p class="facts-intro">
                     To help you plan your journey or understand the administrative and geographical landscape of Lahore,
                     here is a summary of key statistics and quick facts:
                 </p>
-                <ul>
-                    <li><strong>Province:</strong> Punjab, serving as its administrative capital.</li>
-                    <li><strong>Population:</strong> Approximately 13 million residents, making it one of the largest
-                        cities in South Asia.</li>
-                    <li><strong>Area:</strong> Spans across approximately 1,772 square kilometers.</li>
-                    <li><strong>Climate:</strong> Semiarid climate, characterized by hot summers (reaching up to 45
-                        degrees Celsius), a wet monsoon season (July to August), and cool, dry winters (ranging from 5
-                        to 20 degrees Celsius).</li>
-                    <li><strong>Language:</strong> Punjabi is the most widely spoken native language, while Urdu serves
-                        as the national language and English is commonly used in official and educational contexts.</li>
-                    <li><strong>Currency:</strong> Pakistani Rupee (PKR).</li>
-                    <li><strong>Time Zone:</strong> Pakistan Standard Time (PST), which is UTC+5.</li>
-                    <li><strong>Best time to visit:</strong> The winter season from November to February offers pleasant
-                        temperatures, clear skies, and a perfect environment for outdoor sightseeing and attending
-                        cultural festivals.</li>
-                </ul>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 22h16M2 20h20M4 9h16M4 9l8-6 8 6M6 9v11M10 9v11M14 9v11M18 9v11" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <h4>Province</h4>
+                        <p>Punjab, serving as its administrative capital.</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="9" cy="7" r="4" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <h4>Population</h4>
+                        <p>Approximately 13 million residents, making it one of the largest cities in South Asia.</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="9" y1="3" x2="9" y2="18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="15" y1="6" x2="15" y2="21" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <h4>Area</h4>
+                        <p>Spans across approximately 1,772 square kilometers.</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="5" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="12" y1="1" x2="12" y2="3" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="12" y1="21" x2="12" y2="23" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="1" y1="12" x2="3" y2="12" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="21" y1="12" x2="23" y2="12" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="var(--gold)" stroke-width="2"/>
+                            </svg>
+                        </span>
+                        <h4>Climate</h4>
+                        <p>Semiarid climate, characterized by hot summers (reaching up to 45 degrees Celsius), a wet monsoon season (July to August), and cool, dry winters (ranging from 5 to 20 degrees Celsius).</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <h4>Language</h4>
+                        <p>Punjabi is the most widely spoken native language, while Urdu serves as the national language and English is commonly used in official and educational contexts.</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="12" y1="6" x2="12" y2="18" stroke="var(--gold)" stroke-width="2"/>
+                                <path d="M9 9h6M9 15h6" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <h4>Currency</h4>
+                        <p>Pakistani Rupee (PKR).</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="2"/>
+                                <polyline points="12 6 12 12 16 14" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <h4>Time Zone</h4>
+                        <p>Pakistan Standard Time (PST), which is UTC+5.</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-icon">
+                            <svg class="fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="8" y1="2" x2="8" y2="6" stroke="var(--gold)" stroke-width="2"/>
+                                <line x1="3" y1="10" x2="21" y2="10" stroke="var(--gold)" stroke-width="2"/>
+                            </svg>
+                        </span>
+                        <h4>Best time to visit</h4>
+                        <p>The winter season from November to February offers pleasant temperatures, clear skies, and a perfect environment for outdoor sightseeing and attending cultural festivals.</p>
+                    </div>
+                </div>
             </article>
         </section>
 
-        <section>
+        <div class="palace-divider"></div>
+
+        <section class="history-timeline">
             <h2>History of Lahore</h2>
-            <article>
-                <h3>Ancient Lahore</h3>
-                <p>
-                    According to Hindu legend, Lahore was founded by Prince Lava, the son of the deity Rama, and was
-                    historically known as Lavapuri. In historical records, early geographers and travelers, including
-                    the Chinese pilgrim Xuanzang in the 7th century, documented a significant town in the region.
-                    Archeological excavations suggest that the settlement evolved over centuries, eventually falling
-                    under the control of the Hindu Shahi dynasty before becoming a major urban center under the
-                    Ghaznavids.
-                </p>
-            </article>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <svg class="timeline-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="var(--gold)" stroke-width="2" fill="none"/>
+                            <path d="M14 3v5h5M16 13H8M16 17H8" stroke="var(--gold)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <article>
+                        <h3>Ancient Lahore</h3>
+                        <p>
+                            According to Hindu legend, Lahore was founded by Prince Lava, the son of the deity Rama, and was
+                            historically known as Lavapuri. In historical records, early geographers and travelers, including
+                            the Chinese pilgrim Xuanzang in the 7th century, documented a significant town in the region.
+                            Archeological excavations suggest that the settlement evolved over centuries, eventually falling
+                            under the control of the Hindu Shahi dynasty before becoming a major urban center under the
+                            Ghaznavids.
+                        </p>
+                    </article>
+                </div>
 
-            <article>
-                <h3>Mughal Era</h3>
-                <p>
-                    The golden age of Lahore began with the arrival of the Mughal Empire in the 16th century. Emperor
-                    Akbar made Lahore the empire capital from 1584 to 1598, enclosing the city with massive brick walls
-                    and building the foundations of the Lahore Fort. Subsequent emperors, Jahangir, Shah Jahan, and
-                    Aurangzeb, expanded the city, constructing grand mosques, gardens, and palaces. During this period,
-                    Lahore grew into a center of art, poetry, commerce, and architecture, earning the reputation of one
-                    of the most beautiful cities in the world.
-                </p>
-            </article>
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <svg class="timeline-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2c1.7 0 3 1.3 3 3v3h-6V5c0-1.7 1.3-3 3-3zm-8 16V9c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v9H4zm1-3h14v-2H5v2zM3 20h18v2H3v-2z" stroke="var(--gold)" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <article>
+                        <h3>Mughal Era</h3>
+                        <p>
+                            The golden age of Lahore began with the arrival of the Mughal Empire in the 16th century. Emperor
+                            Akbar made Lahore the empire capital from 1584 to 1598, enclosing the city with massive brick walls
+                            and building the foundations of the Lahore Fort. Subsequent emperors, Jahangir, Shah Jahan, and
+                            Aurangzeb, expanded the city, constructing grand mosques, gardens, and palaces. During this period,
+                            Lahore grew into a center of art, poetry, commerce, and architecture, earning the reputation of one
+                            of the most beautiful cities in the world.
+                        </p>
+                    </article>
+                </div>
 
-            <article>
-                <h3>Sikh Empire</h3>
-                <p>
-                    Following the decline of the Mughal Empire, Lahore faced unstable periods before being captured by
-                    the Sikh Ranjit Singh in 1799. Ranjit Singh declared Lahore the capital of his sovereign Sikh
-                    Empire. He restored several damaged heritage sites, built new palaces, and constructed the Samadhi
-                    of Ranjit Singh. The city maintained its status as a major seat of power until the annexation of
-                    Punjab by the British East India Company in 1849.
-                </p>
-            </article>
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <svg class="timeline-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.5 17.5L3 6V3h3l11.5 11.5M9.5 17.5L21 6V3h-3L6.5 14.5M12 14v8M10 21h4" stroke="var(--gold)" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <article>
+                        <h3>Sikh Empire</h3>
+                        <p>
+                            Following the decline of the Mughal Empire, Lahore faced unstable periods before being captured by
+                            the Sikh Ranjit Singh in 1799. Ranjit Singh declared Lahore the capital of his sovereign Sikh
+                            Empire. He restored several damaged heritage sites, built new palaces, and constructed the Samadhi
+                            of Ranjit Singh. The city maintained its status as a major seat of power until the annexation of
+                            Punjab by the British East India Company in 1849.
+                        </p>
+                    </article>
+                </div>
 
-            <article>
-                <h3>British Colonial Period</h3>
-                <p>
-                    Under British rule, Lahore underwent significant architectural and structural transformations. The
-                    British constructed administrative offices, educational institutions, museums, and railway networks
-                    in an Indo-Saracenic architectural style. They built Mall Road, established the Lawrence Gardens,
-                    and founded historic colleges. During this time, Lahore also became a central arena for the Indian
-                    independence movement and the Pakistan movement, culminating in the passing of the Lahore Resolution
-                    in 1940 at Iqbal Park.
-                </p>
-            </article>
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <svg class="timeline-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 22h16M2 20h20M4 9h16M4 9l8-6 8 6M6 9v11M10 9v11M14 9v11M18 9v11" stroke="var(--gold)" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <article>
+                        <h3>British Colonial Period</h3>
+                        <p>
+                            Under British rule, Lahore underwent significant architectural and structural transformations. The
+                            British constructed administrative offices, educational institutions, museums, and railway networks
+                            in an Indo-Saracenic architectural style. They built Mall Road, established the Lawrence Gardens,
+                            and founded historic colleges. During this time, Lahore also became a central arena for the Indian
+                            independence movement and the Pakistan movement, culminating in the passing of the Lahore Resolution
+                            in 1940 at Iqbal Park.
+                        </p>
+                    </article>
+                </div>
 
-            <article>
-                <h3>Modern Lahore</h3>
-                <p>
-                    Following the partition of British India in 1947, Lahore became part of the newly independent state
-                    of Pakistan. Despite the challenges of partition, the city quickly recovered its position as the
-                    cultural and intellectual capital of the nation. Modern Lahore has expanded dramatically,
-                    introducing residential suburbs, commercial centers, industrial zones, and advanced public
-                    transportation networks, while continuing to preserve its priceless historical heritage.
-                </p>
-            </article>
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <svg class="timeline-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22V14" stroke="var(--gold)" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <article>
+                        <h3>Modern Lahore</h3>
+                        <p>
+                            Following the partition of British India in 1947, Lahore became part of the newly independent state
+                            of Pakistan. Despite the challenges of partition, the city quickly recovered its position as the
+                            cultural and intellectual capital of the nation. Modern Lahore has expanded dramatically,
+                            introducing residential suburbs, commercial centers, industrial zones, and advanced public
+                            transportation networks, while continuing to preserve its priceless historical heritage.
+                        </p>
+                    </article>
+                </div>
+            </div>
         </section>
+
+        <div class="palace-divider"></div>
+
+        <!-- Explore Lahore Section -->
+        <section class="explore-lahore-section" id="explore-map">
+            <div class="explore-container">
+                <!-- Left Side: Illustrated SVG Map -->
+                <div class="map-container">
+                    <svg class="lahore-svg-map" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Map Background -->
+                        <rect width="100%" height="100%" fill="#F5EFE2" />
+                        <rect x="10" y="10" width="580" height="480" fill="none" stroke="#D4AF37" stroke-width="2" />
+                        <rect x="15" y="15" width="570" height="470" fill="none" stroke="#D4AF37" stroke-width="0.5" stroke-dasharray="2,2" />
+                        
+                        <!-- Vintage Grid Lines -->
+                        <line x1="100" y1="15" x2="100" y2="485" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="200" y1="15" x2="200" y2="485" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="300" y1="15" x2="300" y2="485" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="400" y1="15" x2="400" y2="485" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="500" y1="15" x2="500" y2="485" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="15" y1="100" x2="585" y2="100" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="15" y1="200" x2="585" y2="200" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="15" y1="300" x2="585" y2="300" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+                        <line x1="15" y1="400" x2="585" y2="400" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1" />
+
+                        <!-- River Ravi (Winding Blue-Green Line) -->
+                        <path d="M 585,30 Q 480,45 350,110 T 150,140 T 80,280 T -15,360" fill="none" stroke="#2a7766" stroke-width="14" opacity="0.15" stroke-linecap="round" />
+                        <path d="M 585,30 Q 480,45 350,110 T 150,140 T 80,280 T -15,360" fill="none" stroke="#0E4B3B" stroke-width="2.5" opacity="0.6" stroke-linecap="round" />
+                        <text x="350" y="85" fill="#0E4B3B" font-family="'Marcellus', serif" font-size="11" font-style="italic" transform="rotate(22 350 85)" letter-spacing="1">RIVER RAVI</text>
+
+                        <!-- Lahore Canal -->
+                        <path d="M 585,250 C 450,260 380,330 250,450 T -15,520" fill="none" stroke="#D4AF37" stroke-width="4.5" stroke-dasharray="8,4" opacity="0.5" />
+                        <text x="340" y="360" fill="#7A1E24" font-family="'Marcellus', serif" font-size="10" font-style="italic" transform="rotate(-42 340 360)">LAHORE CANAL</text>
+
+                        <!-- Historic Mall Road -->
+                        <path d="M 585,380 L 320,340 L 120,320" fill="none" stroke="#6E1F2A" stroke-width="3" opacity="0.45" stroke-linecap="round" />
+                        <text x="220" y="325" fill="#6E1F2A" font-family="'Marcellus', serif" font-size="10" transform="rotate(7 220 325)" letter-spacing="0.5">MALL ROAD</text>
+
+                        <!-- Old Walled City area indicator circle -->
+                        <circle cx="240" cy="210" r="75" fill="rgba(110, 31, 42, 0.04)" stroke="#6E1F2A" stroke-width="1.5" stroke-dasharray="6,4" />
+                        <rect x="180" y="200" width="120" height="20" rx="3" fill="#6E1F2A" opacity="0.9" />
+                        <text x="240" y="214" fill="#E8DCC5" font-family="'Cinzel', serif" font-size="10" font-weight="bold" text-anchor="middle" letter-spacing="1">WALLED CITY</text>
+
+                        <!-- Compass Rose on Map -->
+                        <g transform="translate(520, 80)">
+                            <circle cx="0" cy="0" r="32" fill="#F5EFE2" stroke="#D4AF37" stroke-width="1" />
+                            <circle cx="0" cy="0" r="28" fill="none" stroke="#D4AF37" stroke-width="0.5" stroke-dasharray="2,2" />
+                            <path d="M 0,-24 L 4,-5 L 24,0 L 4,5 L 0,24 L -4,5 L -24,0 L -4,-5 Z" fill="#D4AF37" stroke="#7A1E24" stroke-width="1" />
+                            <circle cx="0" cy="0" r="5" fill="#7A1E24" />
+                            <text x="0" y="-28" fill="#7A1E24" font-family="'Cinzel', serif" font-size="9" font-weight="bold" text-anchor="middle">N</text>
+                        </g>
+
+                        <!-- Interactive Landmark Location Pins -->
+                        <!-- 1. Lahore Fort -->
+                        <g class="map-pin" transform="translate(260, 150)" onclick="highlightLandmark('fort-card')">
+                            <circle cx="0" cy="0" r="14" fill="rgba(212, 175, 55, 0.35)" class="ping-circle" />
+                            <path d="M 0,0 C -4,-4 -7,-10 -7,-15 C -7,-21 0,-26 0,-26 C 0,-26 7,-21 7,-15 C 7,-10 4,-4 0,0 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1.5" />
+                            <circle cx="0" cy="-15" r="2.5" fill="#6E1F2A" />
+                            <text x="0" y="-31" class="pin-label" text-anchor="middle">Lahore Fort</text>
+                        </g>
+
+                        <!-- 2. Badshahi Mosque -->
+                        <g class="map-pin" transform="translate(190, 180)" onclick="highlightLandmark('mosque-card')">
+                            <circle cx="0" cy="0" r="14" fill="rgba(212, 175, 55, 0.35)" class="ping-circle" />
+                            <path d="M 0,0 C -4,-4 -7,-10 -7,-15 C -7,-21 0,-26 0,-26 C 0,-26 7,-21 7,-15 C 7,-10 4,-4 0,0 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1.5" />
+                            <circle cx="0" cy="-15" r="2.5" fill="#6E1F2A" />
+                            <text x="0" y="-31" class="pin-label" text-anchor="middle">Badshahi Mosque</text>
+                        </g>
+
+                        <!-- 3. Shalimar Gardens -->
+                        <g class="map-pin" transform="translate(490, 190)" onclick="highlightLandmark('gardens-card')">
+                            <circle cx="0" cy="0" r="14" fill="rgba(212, 175, 55, 0.35)" class="ping-circle" />
+                            <path d="M 0,0 C -4,-4 -7,-10 -7,-15 C -7,-21 0,-26 0,-26 C 0,-26 7,-21 7,-15 C 7,-10 4,-4 0,0 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1.5" />
+                            <circle cx="0" cy="-15" r="2.5" fill="#6E1F2A" />
+                            <text x="0" y="-31" class="pin-label" text-anchor="middle">Shalimar Gardens</text>
+                        </g>
+
+                        <!-- 4. Minar-e-Pakistan -->
+                        <g class="map-pin" transform="translate(170, 120)" onclick="highlightLandmark('minar-card')">
+                            <circle cx="0" cy="0" r="14" fill="rgba(212, 175, 55, 0.35)" class="ping-circle" />
+                            <path d="M 0,0 C -4,-4 -7,-10 -7,-15 C -7,-21 0,-26 0,-26 C 0,-26 7,-21 7,-15 C 7,-10 4,-4 0,0 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1.5" />
+                            <circle cx="0" cy="-15" r="2.5" fill="#6E1F2A" />
+                            <text x="0" y="-31" class="pin-label" text-anchor="middle">Minar-e-Pakistan</text>
+                        </g>
+
+                        <!-- 5. Walled City Gates -->
+                        <g class="map-pin" transform="translate(290, 220)" onclick="highlightLandmark('walled-gates')">
+                            <circle cx="0" cy="0" r="14" fill="rgba(212, 175, 55, 0.35)" class="ping-circle" />
+                            <path d="M 0,0 C -4,-4 -7,-10 -7,-15 C -7,-21 0,-26 0,-26 C 0,-26 7,-21 7,-15 C 7,-10 4,-4 0,0 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1.5" />
+                            <circle cx="0" cy="-15" r="2.5" fill="#6E1F2A" />
+                            <text x="0" y="-31" class="pin-label" text-anchor="middle">Walled City Gates</text>
+                        </g>
+
+                        <!-- 6. Anarkali Bazaar -->
+                        <g class="map-pin" transform="translate(210, 320)" onclick="highlightLandmark('anarkali-card')">
+                            <circle cx="0" cy="0" r="14" fill="rgba(212, 175, 55, 0.35)" class="ping-circle" />
+                            <path d="M 0,0 C -4,-4 -7,-10 -7,-15 C -7,-21 0,-26 0,-26 C 0,-26 7,-21 7,-15 C 7,-10 4,-4 0,0 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1.5" />
+                            <circle cx="0" cy="-15" r="2.5" fill="#6E1F2A" />
+                            <text x="0" y="-31" class="pin-label" text-anchor="middle">Anarkali Bazaar</text>
+                        </g>
+
+                        <!-- 7. Lahore Museum -->
+                        <g class="map-pin" transform="translate(280, 300)" onclick="highlightLandmark('museum-card')">
+                            <circle cx="0" cy="0" r="14" fill="rgba(212, 175, 55, 0.35)" class="ping-circle" />
+                            <path d="M 0,0 C -4,-4 -7,-10 -7,-15 C -7,-21 0,-26 0,-26 C 0,-26 7,-21 7,-15 C 7,-10 4,-4 0,0 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1.5" />
+                            <circle cx="0" cy="-15" r="2.5" fill="#6E1F2A" />
+                            <text x="0" y="-31" class="pin-label" text-anchor="middle">Lahore Museum</text>
+                        </g>
+                    </svg>
+                </div>
+                
+                <!-- Right Side: Details & Stats Card -->
+                <div class="explore-details">
+                    <h2>Explore Lahore</h2>
+                    <p>
+                        Lahore is a city of layers, defined by its strategic geography near the River Ravi. The historic Walled City is the ancient heart, featuring narrow brick streets, bustling bazaars, and legendary Mughal monuments. This illustrated guide map offers an absolute visual anchor to key landmarks. Click any golden location marker on the map to navigate directly to their historical details.
+                    </p>
+                    <div class="royal-facts-card">
+                        <div class="royal-fact-item">
+                            <span class="royal-fact-icon">
+                                <svg class="royal-fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 20h18" stroke="var(--gold)" stroke-width="2"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Province</strong>
+                                <span>Punjab (Capital)</span>
+                            </div>
+                        </div>
+                        <div class="royal-fact-item">
+                            <span class="royal-fact-icon">
+                                <svg class="royal-fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="9" cy="7" r="4" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Population</strong>
+                                <span>~13 Million</span>
+                            </div>
+                        </div>
+                        <div class="royal-fact-item">
+                            <span class="royal-fact-icon">
+                                <svg class="royal-fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 3h18v18H3z" stroke="var(--gold)" stroke-width="2"/>
+                                    <path d="M21 3L3 21M9 3v6M15 3v3M3 9h6M3 15h3" stroke="var(--gold)" stroke-width="2"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Area</strong>
+                                <span>1,772 km²</span>
+                            </div>
+                        </div>
+                        <div class="royal-fact-item">
+                            <span class="royal-fact-icon">
+                                <svg class="royal-fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="var(--gold)" stroke-width="2"/>
+                                    <polyline points="14 2 14 8 20 8" stroke="var(--gold)" stroke-width="2"/>
+                                    <line x1="16" y1="13" x2="8" y2="13" stroke="var(--gold)" stroke-width="2"/>
+                                    <line x1="16" y1="17" x2="8" y2="17" stroke="var(--gold)" stroke-width="2"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Founded</strong>
+                                <span>Antiquity (Prince Lava)</span>
+                            </div>
+                        </div>
+                        <div class="royal-fact-item">
+                            <span class="royal-fact-icon">
+                                <svg class="royal-fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Language</strong>
+                                <span>Urdu &amp; Punjabi</span>
+                            </div>
+                        </div>
+                        <div class="royal-fact-item">
+                            <span class="royal-fact-icon">
+                                <svg class="royal-fact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 20l9-15 9 15z" stroke="var(--gold)" stroke-width="2"/>
+                                    <path d="M9 20l3-5 3 5z" fill="var(--gold)"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Elevation</strong>
+                                <span>217 m (712 ft)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="palace-divider"></div>
 
         <section class="destinations">
             <h2>UNESCO World Heritage Sites</h2>
-            <article>
+            <article id="fort-card">
                 <h3>Lahore Fort</h3>
                 <figure>
                     <img src="../public/lahore_fort.jfif" alt="Lahore Fort">
@@ -150,10 +1924,10 @@
                     and private audience halls (Diwan-e-Aam and Diwan-e-Khas). The site was designated as a UNESCO World
                     Heritage Site in 1981, acknowledging its outstanding universal value.
                 </p>
-            </article>
+                </article>
 
-            <article>
-                <h3>Shalimar Gardens</h3>
+                <article id="gardens-card">
+                    <h3>Shalimar Gardens</h3>
                 <figure>
                     <img src="../public/shalimar.jfif" alt="Shalimar Gardens">
                     <figcaption>Terraced layouts and water channels of the Shalimar Gardens.</figcaption>
@@ -172,9 +1946,11 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="destinations">
             <h2>Famous Mughal Landmarks and Masterpieces</h2>
-            <article>
+            <article id="mosque-card">
                 <h3>Badshahi Mosque</h3>
                 <figure>
                     <img src="../public/Badshahi%20mosque.jpg" alt="Badshahi Mosque">
@@ -188,7 +1964,7 @@
                 </p>
             </article>
 
-            <article>
+            <article id="minar-card">
                 <h3>Minar-e-Pakistan</h3>
                 <figure>
                     <img src="../public/minar%20pakistan.jfif" alt="Minar-e-Pakistan">
@@ -292,6 +2068,8 @@
                 </p>
             </article>
         </section>
+
+        <div class="palace-divider"></div>
 
         <section class="destinations">
             <h2>Historical Tombs and Mausoleums</h2>
@@ -415,7 +2193,9 @@
             </article>
         </section>
 
-        <section class="destinations">
+        <div class="palace-divider"></div>
+
+        <section class="destinations" id="walled-gates">
             <h2>Historical Gates of the Walled City</h2>
             <article>
                 <h3>Roshnai Gate</h3>
@@ -580,6 +2360,8 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="destinations">
             <h2>Historic Havelis and Walled City Anchors</h2>
             <article>
@@ -621,6 +2403,8 @@
                 </p>
             </article>
         </section>
+
+        <div class="palace-divider"></div>
 
         <section class="destinations">
             <h2>British Colonial and Literary Heritage</h2>
@@ -687,10 +2471,16 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="why-visit">
             <h2>Religious Heritage</h2>
             <article>
                 <h3>Islamic Sites</h3>
+                <figure>
+                    <img src="../public/data%20darbar.jfif" alt="Data Darbar">
+                    <figcaption>The illuminated shrine of Sufi saint Data Ganj Bakhsh (Data Darbar).</figcaption>
+                </figure>
                 <p>
                     Lahore's Islamic heritage is defined by magnificent historic mosques and shrines. The Badshahi
                     Mosque, Wazir Khan Mosque, Begum Shahi Mosque, and Sonehri Masjid represent the pinnacle of Mughal
@@ -710,6 +2500,10 @@
             </article>
             <article>
                 <h3>Sikh Heritage</h3>
+                <figure>
+                    <img src="../public/ranjit%20sing.jfif" alt="Sikh Heritage">
+                    <figcaption>The Samadhi of Maharaja Ranjit Singh near Lahore Fort.</figcaption>
+                </figure>
                 <p>
                     For the global Sikh community, Lahore is a highly revered destination. Gurdwara Dera Sahib, located
                     near the Lahore Fort, marks the martyrdom site of Guru Arjan Dev. Gurdwara Janam Asthan in nearby
@@ -729,10 +2523,16 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="destinations">
             <h2>Museums of Lahore</h2>
-            <article>
+            <article id="museum-card">
                 <h3>Lahore Museum</h3>
+                <figure>
+                    <img src="../public/Lahore%20Museum.jfif" alt="Lahore Museum">
+                    <figcaption>The historic facade of Lahore Museum housing ancient artifacts.</figcaption>
+                </figure>
                 <p>
                     The Lahore Museum is the largest and most visited museum in Pakistan. It is famous for its
                     collection of Gandharan sculptures, including the renowned &quot;Fasting Buddha.&quot; The museum
@@ -742,6 +2542,10 @@
             </article>
             <article>
                 <h3>Army Museum Lahore</h3>
+                <figure>
+                    <img src="../public/Army%20Museum%20Lahore.jfif" alt="Army Museum Lahore">
+                    <figcaption>Exhibits detailing the military history of Pakistan at Army Museum.</figcaption>
+                </figure>
                 <p>
                     A modern museum dedicated to the military history of Pakistan. It displays a vast range of weapons,
                     military vehicles, historical uniforms, and detailed exhibitions detailing the country's military
@@ -750,6 +2554,10 @@
             </article>
             <article>
                 <h3>National History Museum</h3>
+                <figure>
+                    <img src="../public/National%20History%20Museum.jfif" alt="National History Museum">
+                    <figcaption>Digital corridors and historic archives in the National History Museum.</figcaption>
+                </figure>
                 <p>
                     Located in Greater Iqbal Park, this digital museum offers an interactive journey through the history
                     of the subcontinent, the partition of 1947, and the struggles of the founders of Pakistan using
@@ -758,6 +2566,10 @@
             </article>
             <article>
                 <h3>Shakir Ali Museum</h3>
+                <figure>
+                    <img src="../public/Shakir%20Ali%20Museum.jfif" alt="Shakir Ali Museum">
+                    <figcaption>The personal residence and modern artworks of painter Shakir Ali.</figcaption>
+                </figure>
                 <p>
                     The former residence of the famous Pakistani modernist painter and teacher Shakir Ali. The museum
                     houses his personal belongings, paintings, and drawings, serving as a center for contemporary art
@@ -766,6 +2578,10 @@
             </article>
             <article>
                 <h3>Fakir Khana Museum</h3>
+                <figure>
+                    <img src="../public/Fakir%20Khana%20Museum.jfif" alt="Fakir Khana Museum">
+                    <figcaption>Ancient relics and private collections at Fakir Khana in the Walled City.</figcaption>
+                </figure>
                 <p>
                     Located in the Walled City, Fakir Khana is the largest private museum in South Asia. It contains
                     thousands of relics, paintings, carpets, and sculptures belonging to the Fakir family, who served as
@@ -774,10 +2590,16 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="why-visit">
             <h2>Libraries of Lahore</h2>
             <article>
                 <h3>Punjab Public Library</h3>
+                <figure>
+                    <img src="../public/Punjab%20Public%20Library.jfif" alt="Punjab Public Library">
+                    <figcaption>The historical building of Punjab Public Library established in 1884.</figcaption>
+                </figure>
                 <p>
                     Established in 1884, this library is one of the oldest public libraries in Asia. It houses a massive
                     collection of rare books, historical gazettes, and manuscripts in Arabic, Persian, and Urdu, serving
@@ -786,6 +2608,10 @@
             </article>
             <article>
                 <h3>Quaid-e-Azam Library</h3>
+                <figure>
+                    <img src="../public/Quaid-e-Azam%20Library.jfif" alt="Quaid-e-Azam Library">
+                    <figcaption>The Victorian architecture of Quaid-e-Azam Library in Lawrence Gardens.</figcaption>
+                </figure>
                 <p>
                     Located within the scenic Lawrence Gardens, this library is housed in a grand Victorian-era
                     building. It is a high-profile reference library serving students, researchers, and civil service
@@ -794,6 +2620,10 @@
             </article>
             <article>
                 <h3>Dyal Singh Library</h3>
+                <figure>
+                    <img src="../public/Dyal%20Singh%20Library.jfif" alt="Dyal Singh Library">
+                    <figcaption>The facade of the historic Dyal Singh Library founded in 1928.</figcaption>
+                </figure>
                 <p>
                     Founded in 1928 by Sardar Dyal Singh Majithia, this library is known for its valuable collection of
                     academic literature, rare periodicals, and historical books focusing on South Asian history and
@@ -802,6 +2632,10 @@
             </article>
             <article>
                 <h3>Government College Library</h3>
+                <figure>
+                    <img src="../public/Government%20College%20Library.jfif" alt="Government College Library">
+                    <figcaption>The academic corridors and study spaces inside GCU Library.</figcaption>
+                </figure>
                 <p>
                     The library of Government College University holds a rich collection of academic books, including
                     the personal library collections of famous scholars like Dr. Allama Muhammad Iqbal, making it an
@@ -810,6 +2644,10 @@
             </article>
             <article>
                 <h3>Punjab University Library</h3>
+                <figure>
+                    <img src="../public/Punjab%20University%20Library.jfif" alt="Punjab University Library">
+                    <figcaption>The expansive archives and modern facility of Punjab University Library.</figcaption>
+                </figure>
                 <p>
                     The central library of the University of the Punjab is one of the largest libraries in Pakistan,
                     boasting over half a million books, digital database access, and a massive collection of rare
@@ -818,10 +2656,16 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="destinations">
             <h2>Educational Institutions</h2>
             <article>
                 <h3>University of the Punjab</h3>
+                <figure>
+                    <img src="../public/University%20of%20the%20Punjab.jfif" alt="University of the Punjab">
+                    <figcaption>The historic campus of Punjab University, established in 1882.</figcaption>
+                </figure>
                 <p>
                     Established in 1882, the University of the Punjab is the oldest and largest public university in
                     Pakistan. It has a beautiful campus on the Canal Bank and has produced many of the nation's leading
@@ -830,6 +2674,10 @@
             </article>
             <article>
                 <h3>LUMS</h3>
+                <figure>
+                    <img src="../public/LUMS.jfif" alt="LUMS">
+                    <figcaption>The modern academic blocks and grounds of LUMS.</figcaption>
+                </figure>
                 <p>
                     The Lahore University of Management Sciences (LUMS) is a premier private research university known
                     for its world-class business, science, and humanities programs, producing highly successful leaders
@@ -838,6 +2686,10 @@
             </article>
             <article>
                 <h3>UET Lahore</h3>
+                <figure>
+                    <img src="../public/UET%20Lahore.jfif" alt="UET Lahore">
+                    <figcaption>The main building facade of UET Lahore.</figcaption>
+                </figure>
                 <p>
                     The University of Engineering and Technology (UET) is one of the nation's top engineering
                     institutions, known for its rigorous academic programs, research contributions, and highly skilled
@@ -846,6 +2698,10 @@
             </article>
             <article>
                 <h3>Government College University</h3>
+                <figure>
+                    <img src="../public/Government%20College%20University.jfif" alt="Government College University">
+                    <figcaption>The Gothic tower and campus architecture of GCU Lahore, established in 1864.</figcaption>
+                </figure>
                 <p>
                     GCU Lahore, established in 1864, is a historic institution known for its gothic architecture and
                     long list of famous alumni, including Nobel laureate Abdus Salam and national poet Allama Iqbal.
@@ -853,6 +2709,10 @@
             </article>
             <article>
                 <h3>Kinnaird College</h3>
+                <figure>
+                    <img src="../public/Kinnaird%20College.jfif" alt="Kinnaird College">
+                    <figcaption>The main entrance of Kinnaird College, a pioneer in women's higher education.</figcaption>
+                </figure>
                 <p>
                     Founded in 1913, Kinnaird College for Women is a premier liberal arts college that has played a
                     pioneering role in women's higher education and empowerment in Pakistan.
@@ -860,6 +2720,10 @@
             </article>
             <article>
                 <h3>Aitchison College</h3>
+                <figure>
+                    <img src="../public/Aitchison%20College.jfif" alt="Aitchison College">
+                    <figcaption>The historic brick architecture and green campus of Aitchison College.</figcaption>
+                </figure>
                 <p>
                     A historic independent boarding school established in 1886, known for its expansive green campus,
                     colonial-era architecture, and producing many prominent national leaders, athletes, and
@@ -868,6 +2732,10 @@
             </article>
             <article>
                 <h3>King Edward Medical University</h3>
+                <figure>
+                    <img src="../public/King%20Edward%20Medical%20University.jfif" alt="King Edward Medical University">
+                    <figcaption>The primary facade of King Edward Medical University founded in 1860.</figcaption>
+                </figure>
                 <p>
                     Founded in 1860, King Edward Medical University is the oldest medical school in Pakistan. Affiliated
                     with Mayo Hospital, it is recognized as a leading center for medical education and research in the
@@ -876,6 +2744,10 @@
             </article>
             <article>
                 <h3>University of Central Punjab (UCP)</h3>
+                <figure>
+                    <img src="../public/University%20of%20Central%20Punjab%20%28UCP%29.jfif" alt="University of Central Punjab">
+                    <figcaption>The modern academic campus and infrastructure of UCP.</figcaption>
+                </figure>
                 <p>
                     The University of Central Punjab (UCP) is a prominent private sector university located in Lahore.
                     Established in 2002, it is part of the Punjab Group of Colleges. UCP offers a wide range of
@@ -886,10 +2758,16 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="destinations">
             <h2>Markets and Shopping</h2>
-            <article>
+            <article id="anarkali-card">
                 <h3>Anarkali Bazaar</h3>
+                <figure>
+                    <img src="../public/Anarkali%20Bazaar.jfif" alt="Anarkali Bazaar">
+                    <figcaption>The colorful clothing and local shops at Anarkali Bazaar.</figcaption>
+                </figure>
                 <p>
                     One of the oldest markets in South Asia, famous for traditional clothing, jewelry, leather goods,
                     and handicrafts. It offers a lively shopping experience filled with history.
@@ -897,6 +2775,10 @@
             </article>
             <article>
                 <h3>Shah Alam Market</h3>
+                <figure>
+                    <img src="../public/Shah%20Alam%20Market.jfif" alt="Shah Alam Market">
+                    <figcaption>The bustling wholesale shopping streets of Shah Alam Market.</figcaption>
+                </figure>
                 <p>
                     Locally known as Shalmi, this is a massive wholesale market where goods of all categories, from
                     electronics to household items, are traded in large volumes daily.
@@ -904,6 +2786,10 @@
             </article>
             <article>
                 <h3>Urdu Bazaar</h3>
+                <figure>
+                    <img src="../public/Urdu%20Bazaar.jfif" alt="Urdu Bazaar">
+                    <figcaption>Book stalls and publishing shops in the historic Urdu Bazaar.</figcaption>
+                </figure>
                 <p>
                     A historic market dedicated entirely to books, stationery, and educational materials. It is the
                     publishing capital of the region, attracting students and scholars.
@@ -911,6 +2797,10 @@
             </article>
             <article>
                 <h3>Liberty Market</h3>
+                <figure>
+                    <img src="../public/Liberty%20Market.jfif" alt="Liberty Market">
+                    <figcaption>Fashion boutiques and traditional bridal markets at Liberty.</figcaption>
+                </figure>
                 <p>
                     A popular upscale market in Gulberg, famous for modern fashion, traditional bridal wear, cosmetics,
                     jewelry, and a wide range of local street food options.
@@ -918,6 +2808,10 @@
             </article>
             <article>
                 <h3>Ichhra Bazaar</h3>
+                <figure>
+                    <img src="../public/Ichhra%20Bazaar.jfif" alt="Ichhra Bazaar">
+                    <figcaption>The busy paths and fabric stores of Ichhra Bazaar.</figcaption>
+                </figure>
                 <p>
                     A crowded, traditional market known for high-quality fabrics, clothing, and traditional footwear at
                     highly affordable prices, reflecting authentic local culture.
@@ -925,6 +2819,10 @@
             </article>
             <article>
                 <h3>Hall Road</h3>
+                <figure>
+                    <img src="../public/Hall%20Road.jfif" alt="Hall Road">
+                    <figcaption>A central electronics and digital accessory hub on Hall Road.</figcaption>
+                </figure>
                 <p>
                     The electronics hub of Lahore, where consumer electronics, mobile phones, computers, and replacement
                     parts are sold and repaired in hundreds of small shops.
@@ -932,6 +2830,10 @@
             </article>
             <article>
                 <h3>Pace Shopping Mall</h3>
+                <figure>
+                    <img src="../public/Pace%20Shopping%20Mall.jfif" alt="Pace Shopping Mall">
+                    <figcaption>The front facade of Pace Mall, a pioneer of modern retail in Lahore.</figcaption>
+                </figure>
                 <p>
                     One of the earliest modern shopping malls built in Lahore, introducing the concept of department
                     store shopping and indoor recreation under one roof.
@@ -939,6 +2841,10 @@
             </article>
             <article>
                 <h3>Emporium Mall</h3>
+                <figure>
+                    <img src="../public/Emporium%20Mall.jfif" alt="Emporium Mall">
+                    <figcaption>The grand scale and modern architecture of Emporium Mall.</figcaption>
+                </figure>
                 <p>
                     A massive modern shopping mall featuring hundreds of international brands, a large food court, a
                     multiplex cinema, and indoor amusement parks for family entertainment.
@@ -946,6 +2852,10 @@
             </article>
             <article>
                 <h3>Packages Mall</h3>
+                <figure>
+                    <img src="../public/Packages%20Mall.jfif" alt="Packages Mall">
+                    <figcaption>The contemporary design and open layout of Packages Mall.</figcaption>
+                </figure>
                 <p>
                     A state-of-the-art shopping mall known for its spacious design, international outlets, hypermarkets,
                     and regular cultural and entertainment events.
@@ -953,7 +2863,9 @@
             </article>
         </section>
 
-        <section class="why-visit">
+        <div class="palace-divider"></div>
+
+        <section class="food-bazaar">
             <h2>Food Streets and Culinary Culture</h2>
             <article>
                 <h3>Food Streets</h3>
@@ -976,10 +2888,16 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section class="destinations">
             <h2>Parks and Recreation</h2>
             <article>
                 <h3>Jilani Park</h3>
+                <figure>
+                    <img src="../public/Jilani%20Park.jfif" alt="Jilani Park">
+                    <figcaption>The beautifully manicured lawns and floral beds of Jilani Park.</figcaption>
+                </figure>
                 <p>
                     Also known as Racecourse Park, it features walking tracks, beautiful flower gardens, boating lakes,
                     and hosts the annual spring floral exhibitions.
@@ -987,6 +2905,10 @@
             </article>
             <article>
                 <h3>Racecourse Park</h3>
+                <figure>
+                    <img src="../public/Racecourse%20Park.jfif" alt="Racecourse Park">
+                    <figcaption>Polo grounds and walking trails at Racecourse Park.</figcaption>
+                </figure>
                 <p>
                     A massive green park featuring polo grounds, jogging tracks, and well-kept lawns, popular among
                     families for morning walks and weekend picnics.
@@ -994,6 +2916,10 @@
             </article>
             <article>
                 <h3>Jallo Park</h3>
+                <figure>
+                    <img src="../public/Jallo%20Park.jfif" alt="Jallo Park">
+                    <figcaption>Boating lakes and forest reserves in Jallo Park.</figcaption>
+                </figure>
                 <p>
                     A large recreational park on the outskirts of Lahore, featuring a wildlife park, forest research
                     centers, boating lakes, and water parks.
@@ -1001,6 +2927,10 @@
             </article>
             <article>
                 <h3>Model Town Park</h3>
+                <figure>
+                    <img src="../public/Model%20Town%20Park.jfif" alt="Model Town Park">
+                    <figcaption>The circular lake and central jogging trails in Model Town Park.</figcaption>
+                </figure>
                 <p>
                     A beautifully designed circular park in the center of Model Town, popular for its long jogging
                     track, lake, and serene green environment.
@@ -1008,6 +2938,10 @@
             </article>
             <article>
                 <h3>Greater Iqbal Park</h3>
+                <figure>
+                    <img src="../public/Greater%20Iqbal%20Park.jfif" alt="Greater Iqbal Park">
+                    <figcaption>The lush grounds surrounding the historic Minar-e-Pakistan.</figcaption>
+                </figure>
                 <p>
                     Surrounding Minar-e-Pakistan, this massive park features dancing fountains, historic monuments, lush
                     green lawns, and the National History Museum.
@@ -1015,12 +2949,18 @@
             </article>
             <article>
                 <h3>Lawrence Gardens</h3>
+                <figure>
+                    <img src="../public/Lawrence%20Gardens.jfif" alt="Lawrence Gardens">
+                    <figcaption>The classical botanical avenues and trees of Lawrence Gardens.</figcaption>
+                </figure>
                 <p>
                     Also known as Bagh-e-Jinnah, this historic botanical garden features rare tree species, open-air
                     theatres, walking trails, and the Quaid-e-Azam Library.
                 </p>
             </article>
         </section>
+
+        <div class="palace-divider"></div>
 
         <section>
             <h2>The Lahore Canal System</h2>
@@ -1039,6 +2979,8 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section>
             <h2>Architecture of Lahore</h2>
             <article>
@@ -1055,6 +2997,8 @@
                 </p>
             </article>
         </section>
+
+        <div class="palace-divider"></div>
 
         <section>
             <h2>Festivals and Celebrations</h2>
@@ -1073,6 +3017,8 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section>
             <h2>Arts, Culture, and Handicrafts</h2>
             <article>
@@ -1089,6 +3035,8 @@
                 </p>
             </article>
         </section>
+
+        <div class="palace-divider"></div>
 
         <section>
             <h2>Famous Personalities Born in Lahore</h2>
@@ -1112,6 +3060,8 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section>
             <h2>Sports in Lahore</h2>
             <article>
@@ -1127,6 +3077,8 @@
                 </p>
             </article>
         </section>
+
+        <div class="palace-divider"></div>
 
         <section>
             <h2>Economy and Commerce</h2>
@@ -1144,6 +3096,8 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section>
             <h2>Transportation Network</h2>
             <article>
@@ -1160,6 +3114,8 @@
             </article>
         </section>
 
+        <div class="palace-divider"></div>
+
         <section>
             <h2>Tourist Tips</h2>
             <article>
@@ -1175,6 +3131,8 @@
                 </p>
             </article>
         </section>
+
+        <div class="palace-divider"></div>
 
         <section>
             <h2>Fun Facts</h2>
@@ -1201,10 +3159,180 @@
         </section>
     </main>
 
-    <footer>
-        <p>Discover the beauty and culture of Lahore. Visit Pakistan responsibly.</p>
-        <p>&copy; 2026 PakVista. All rights reserved.</p>
-    </footer>
-</body>
+    <div class="palace-divider"></div>
 
+    <!-- Heritage Photo Gallery Section -->
+    <section class="gallery-section">
+        <h2>Heritage Photo Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="../public/Badshahi%20mosque.jpg" alt="Badshahi Mosque">
+                <div class="gallery-caption">Badshahi Mosque</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../public/lahore_fort.jfif" alt="Lahore Fort">
+                <div class="gallery-caption">Shahi Qila (Lahore Fort)</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../public/wazir%20khan%20mosque.jfif" alt="Wazir Khan Mosque">
+                <div class="gallery-caption">Wazir Khan Mosque</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../public/shalimar.jfif" alt="Shalimar Gardens">
+                <div class="gallery-caption">Shalimar Gardens</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../public/tomb%20of%20jhangir.jfif" alt="Tomb of Jahangir">
+                <div class="gallery-caption">Tomb of Emperor Jahangir</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../public/shahi%20hamam.jfif" alt="Shahi Hammam">
+                <div class="gallery-caption">Shahi Hammam Baths</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- Majestic Royal Footer -->
+    <footer class="royal-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo" style="margin-bottom: 1.5rem; justify-content: flex-start;">
+                    <svg class="logo-svg" width="55" height="55" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="rgba(248, 245, 238, 0.08)" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="3,3"/>
+                        <path d="M 25 82 L 25 50 C 25 35, 33 28, 50 12 C 67 28, 75 35, 75 50 L 75 82 Z" stroke="#6E1F2A" stroke-width="2.5" fill="none" />
+                        <path d="M 20 82 L 20 48 C 20 30, 30 22, 50 5 C 70 22, 80 30, 80 48 L 80 82" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+                        <path d="M 50 30 L 54 41 L 65 41 L 56 48 L 60 60 L 50 52 L 40 60 L 44 48 L 35 41 L 46 41 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1" transform="rotate(0 50 50)"/>
+                        <path d="M 50 30 L 54 41 L 65 41 L 56 48 L 60 60 L 50 52 L 40 60 L 44 48 L 35 41 L 46 41 Z" fill="#D4AF37" stroke="#6E1F2A" stroke-width="1" transform="rotate(45 50 50)"/>
+                        <circle cx="50" cy="50" r="7" fill="#6E1F2A" />
+                        <circle cx="50" cy="50" r="4" fill="#D4AF37" />
+                        <path d="M 50 18 L 52 32 L 48 32 Z" fill="#D4AF37"/>
+                        <path d="M 50 82 L 52 68 L 48 68 Z" fill="#D4AF37"/>
+                        <path d="M 18 50 L 32 52 L 32 48 Z" fill="#D4AF37"/>
+                        <path d="M 82 50 L 68 52 L 68 48 Z" fill="#D4AF37"/>
+                    </svg>
+                    <div class="logo-text-wrapper">
+                        <span class="logo-title" style="color: var(--gold) !important; text-shadow: none;">PakVista</span>
+                        <span class="logo-tagline" style="color: var(--beige) !important;">Heritage • Culture • Journey</span>
+                    </div>
+                </a>
+                <p>Discovering the timeless majesty of Pakistan's rich heritage.</p>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Bureau</h4>
+                <p>
+                    <svg class="footer-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="10" r="3" stroke="var(--gold)" stroke-width="2"/>
+                    </svg>
+                    Mall Road, Walled City, Lahore, Pakistan
+                </p>
+                <p>
+                    <svg class="footer-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="22,6 12,13 2,6" stroke="var(--gold)" stroke-width="2"/>
+                    </svg>
+                    heritage@pakvista.com
+                </p>
+                <p>
+                    <svg class="footer-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    +92 (42) 111-LAHORE
+                </p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>Follow the Journey</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon">✦ Facebook</a>
+                    <a href="#" class="social-icon">✦ Instagram</a>
+                    <a href="#" class="social-icon">✦ Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Discover the beauty and culture of Lahore. Visit Pakistan responsibly.</p>
+            <p>&copy; 2026 PakVista. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script Features -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Sticky Navbar Scroll Class
+            const nav = document.querySelector('nav.nav-bar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+
+            // 2. Lightbox Handler
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxCaption = document.getElementById("lightbox-caption");
+            const closeBtn = document.querySelector(".lightbox-close");
+
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            galleryItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    const img = item.querySelector("img");
+                    const cap = item.querySelector(".gallery-caption").innerText;
+                    lightbox.style.display = "flex";
+                    lightboxImg.src = img.src;
+                    lightboxCaption.innerText = cap;
+                });
+            });
+
+            closeBtn.addEventListener("click", () => {
+                lightbox.style.display = "none";
+            });
+
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = "none";
+                }
+            });
+
+            // 3. Automatically append elegant gold links to destination article cards
+            const destinationArticles = document.querySelectorAll(".destinations article");
+            destinationArticles.forEach(article => {
+                if (!article.querySelector(".luxury-card-btn")) {
+                    const btn = document.createElement("a");
+                    btn.className = "luxury-card-btn";
+                    btn.href = "#";
+                    btn.innerHTML = "Explore Heritage ⚜";
+                    article.appendChild(btn);
+                }
+            });
+
+            // 4. Map Pin Highlight Scrolling Handler
+            window.highlightLandmark = function(id) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.style.transition = 'all 0.4s ease';
+                    el.style.transform = 'scale(1.02)';
+                    el.style.borderColor = 'var(--wine-red)';
+                    el.style.boxShadow = '0 0 35px rgba(110, 31, 42, 0.4)';
+                    setTimeout(() => {
+                        el.style.transform = '';
+                        el.style.borderColor = '';
+                        el.style.boxShadow = '';
+                    }, 2000);
+                }
+            };
+        });
+    </script>
+</body>
 </html>

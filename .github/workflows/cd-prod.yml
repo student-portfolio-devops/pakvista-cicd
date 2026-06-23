@@ -13,13 +13,17 @@ jobs:
     environment:
       name: production
       url: https://pakvista-prod.onrender.com
+    
+    env:
+      RENDER_DEPLOY_HOOK_PROD_URL: ${{ secrets.RENDER_DEPLOY_HOOK_PROD_URL }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Deploy to production
-        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_PROD_URL }}"
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK_PROD_URL"
 
       - name: Confirmation
         run: echo "Production deployment completed successfully"

@@ -1,0 +1,24 @@
+name: staging
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      RENDER_DEPLOY_HOOK_STAGING_URL: ${{ secrets.RENDER_DEPLOY_HOOK_STAGING_URL }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Trigger Render staging deploy hook
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK_STAGING_URL"
+
+      - name: Confirm staging deployment hook trigger
+        run: echo "Staging deploy hook triggered successfully."

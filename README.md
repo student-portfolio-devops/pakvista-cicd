@@ -51,7 +51,7 @@ PakVista is a static tourism website showcasing Pakistan's premier destinations 
 
 Access the application in different environments:
 
-- **Development**: https://pakvista-cicd-prod-latest.onrender.com
+- **Development**: https://pakvista-cicd-dev-latest-vpzt.onrender.com
 - **Staging**: https://pakvista-cicd-staging-latest-b1pd.onrender.com
 - **Production**: https://pakvista-cicd-prod-latest.onrender.com
 
